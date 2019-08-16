@@ -7,21 +7,21 @@ export const LOADING = "LOADING";
 export const LOADED = "LOADED";
 
 export interface fetchUsers {
-    type: typeof FETCH_USERS,
-    payload: IUser
+  type: typeof FETCH_USERS;
+  payload: IUser;
 }
 
 export interface fetchUser {
-    type: typeof FETCH_USER,
-    payload: User
+  type: typeof FETCH_USER;
+  payload: User;
 }
 
 export interface loading {
-    type: typeof LOADING
+  type: typeof LOADING;
 }
 
 export interface loaded {
-    type: typeof LOADED
+  type: typeof LOADED;
 }
 
 export type fetchUserTypes = fetchUsers | fetchUser;

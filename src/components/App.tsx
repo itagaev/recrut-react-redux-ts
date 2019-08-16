@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom'; 
-import Home from './home';
-import UserProfile from './userProfile';
+import * as React from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
+import Home from "./home";
+import UserProfile from "./userProfile";
 
 const App: React.FC = () => {
   return (
@@ -20,6 +20,6 @@ const App: React.FC = () => {
       </div>
     </div>
   );
-}
+};
 
 export default App;
