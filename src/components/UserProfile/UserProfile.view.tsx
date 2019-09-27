@@ -1,33 +1,16 @@
+import { UserProfileCtrl } from "./UserProfile.ctrl";
 import * as React from "react";
-import { User } from "../types/users";
+import {
+  UserProfileStateProps,
+  UserProfileDispatchProps,
+  UPMapDispatchToProps
+} from "./UserProfile.types";
 import { connect } from "react-redux";
-import { AppState } from "../store/configureStore";
-import { AppActions } from "../types/action";
-import { ThunkDispatch } from "redux-thunk";
-import { bindActionCreators } from "redux";
-import { fetchUser } from "../actions";
-import { RouteComponentProps } from "react-router";
+import { State } from "../../store/State";
 
-interface RouteInfo {
-  id: string;
-}
-
-interface compProps extends RouteComponentProps<RouteInfo> {}
-
-type Props = LinkDispatchProps & LinkStateProps & compProps;
-
-class UserProfile extends React.Component<Props> {
-  componentDidMount() {
-    this.props.fetchUser(+this.props.match.params.id);
-  }
-
-  handleClick = () => {
-    this.props.history.push("/users");
-  };
-
+class UP extends UserProfileCtrl {
   render() {
     const { user, loading } = this.props;
-    console.log(user, loading);
     return (
       <div>
         {loading && (
@@ -72,31 +55,12 @@ class UserProfile extends React.Component<Props> {
   }
 }
 
-interface LinkStateProps {
-  user: User;
-  loading: boolean;
-}
-
-interface LinkDispatchProps {
-  fetchUser: (id: number) => void;
-}
-
-const mapStateToProps = (state: AppState): LinkStateProps => {
-  return {
-    user: state.user,
-    loading: state.loading
-  };
-};
-
-const mapDispatchToProps = (
-  dispatch: ThunkDispatch<any, any, AppActions>
-): LinkDispatchProps => {
-  return {
-    fetchUser: bindActionCreators(fetchUser, dispatch)
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(UserProfile);
+export const UserProfile = connect<
+  UserProfileStateProps,
+  UserProfileDispatchProps,
+  {},
+  State
+>(
+  ({ user, loading }) => ({ user, loading }),
+  UPMapDispatchToProps
+)(UP);
