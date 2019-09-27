@@ -1,6 +1,6 @@
 import { RouteComponentProps } from "react-router";
 import { PickStates } from "../../store/State";
-import { PickActionCreators, actionCreators } from "../../store/models/action-creators";
+import { actionCreators } from "../../store/models/action-creators";
 
 interface routeInfo {
     id: string
@@ -9,10 +9,12 @@ interface routeInfo {
 export type routeProps = RouteComponentProps<routeInfo>;
 
 
-export type UserProfileDispatchProps = PickActionCreators<"fetchUser">;
+export type UserProfileDispatchProps =  {
+    fetchUser: (id: number) => void;
+};
 
 export const UPMapDispatchToProps: UserProfileDispatchProps = {
-    fetchUser: actionCreators.fetchUser
+    fetchUser: actionCreators.fetchUser,
 }
 
 export type UserProfileStateProps = PickStates<"user" | 'loading'>;

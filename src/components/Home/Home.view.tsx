@@ -24,10 +24,7 @@ class H extends HomeCtrl {
       currentPage: number;
     } = this.state;
 
-    const {
-      users,
-      loading
-    }: { users: IUsers; loading: boolean | null} = this.props;
+    const { users, loading }: { users: IUsers; loading: boolean } = this.props;
     return (
       <div>
         <form className="mt-2" onSubmit={this.handleSubmit}>

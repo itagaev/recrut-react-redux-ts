@@ -1,8 +1,9 @@
-import { PickActionCreators } from "../../store/models/action-creators";
 import { actionCreators } from './../../store/models/action-creators';
 import { PickStates } from "../../store/State";
 
-export type HomeDispatchProps = PickActionCreators<"fetchUsers">;
+export type HomeDispatchProps = {
+  fetchUsers: (city: string, skill: string, page: number) => void;
+};
 
 export const HomeMapDispatchToProps: HomeDispatchProps = {
     fetchUsers: actionCreators.fetchUsers
