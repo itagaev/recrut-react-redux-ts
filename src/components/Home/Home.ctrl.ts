@@ -8,7 +8,7 @@ export class HomeCtrl extends React.Component<HomeProps> {
     currentPage: 1
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     const searchCity = localStorage.getItem("searchCity");
     const searchSkill = localStorage.getItem("searchSkill");
     const currentPage = localStorage.getItem("currentPage");
@@ -19,12 +19,12 @@ export class HomeCtrl extends React.Component<HomeProps> {
     }
   }
 
-  handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  handleSearchItemChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value }: { id: string; value: string } = e.currentTarget;
     this.setState({ [id]: value });
   };
 
-  handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  handleSearchClicked = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const { searchCity, searchSkill } = this.state;
     this.props.fetchUsers(searchCity, searchSkill, 1);

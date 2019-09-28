@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { UserProfile } from './../UserProfile/'
+import { UserProfile } from "./../UserProfile/";
 import { Home } from "../Home";
 
 export class App extends React.Component {

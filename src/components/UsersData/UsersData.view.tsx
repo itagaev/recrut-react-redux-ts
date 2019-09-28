@@ -1,20 +1,17 @@
 import * as React from "react";
-import { UsersCtrl } from "./Users.ctrl";
 import { Link } from "react-router-dom";
+import Loading from "../Loading";
+import { UsersDataProps } from "./UsersData.types";
 
-export class Users extends UsersCtrl {
+export class UsersData extends React.Component<UsersDataProps> {
   render() {
     const { users, loading } = this.props;
+
     return (
       <>
-        {loading && (
-          <div className="d-flex justify-content-center">
-            <div className="spinner-border" role="status">
-              <span className="sr-only">Loading...</span>
-            </div>
-          </div>
-        )}
-        {!loading &&
+        {loading ? (
+          <Loading />
+        ) : (
           users.items &&
           users.items.length > 0 &&
           users.items.map(user => {
@@ -55,7 +52,8 @@ export class Users extends UsersCtrl {
                 </div>
               </div>
             );
-          })}
+          })
+        )}
       </>
     );
   }

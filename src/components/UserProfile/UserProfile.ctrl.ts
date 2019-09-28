@@ -1,16 +1,12 @@
 import * as React from "react";
-import {
-  UserProfileProps,
-} from "./UserProfile.types";
-
+import { UserProfileProps } from "./UserProfile.types";
 
 export class UserProfileCtrl extends React.Component<UserProfileProps> {
-  async componentDidMount() {
+  componentDidMount() {
     this.props.fetchUser(+this.props.match.params.id);
   }
-  
 
-  handleClick = () => {
+  handleBackClick = () => {
     this.props.history.push("/users");
   };
 }

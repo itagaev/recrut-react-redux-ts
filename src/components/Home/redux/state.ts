@@ -1,6 +1,11 @@
-import { Users } from './../../../types/users';
+import { User } from "../../UserProfile/redux/state";
 
-export class fetchUsersState {
-    public users: Users = new Users();
-    public loading: boolean = false;
+export interface UsersState {
+  users: Users;
+  loading: boolean;
+}
+
+export class Users {
+  items: User[] = [];
+  total_count: number = 0;
 }

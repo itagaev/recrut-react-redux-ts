@@ -1,21 +1,18 @@
 .container {
-    margin-top: 20px;
-  }
-  
-  .flex-container {
-    height: 200px;
-    display: flex; 
-    flex-direction: column;
-  }
-  
-  .flex-element-1{
-    display: block;
-    float: left;
-  }
-  .flex-element-2{
-    margin-left: 150px;
-    display: FLEX;
-  }
-  
-  
-  
+  margin-top: 20px;
+}
+
+.flex-container {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-element-1 {
+  display: block;
+  float: left;
+}
+.flex-element-2 {
+  margin-left: 150px;
+  display: FLEX;
+}

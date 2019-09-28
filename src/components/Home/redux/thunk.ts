@@ -1,13 +1,9 @@
-import { Users } from "./../../../types/users";
+import { Users } from "./state";
 import githubAPI from "../../../apis/githubAPI";
-import { fetchUsers as fu } from "./action";
+import { fetchUsersActionCreator } from "./action";
 import { Dispatch } from "redux";
 
-export const fetchUsers = (
-  city: string,
-  skill: string,
-  page: number
-) => async (
+export const fetchUsers = (city: string, skill: string, page: number) => async (
   dispatch: Dispatch
 ): Promise<void> => {
   dispatch({ type: "LOADING" });
@@ -16,7 +12,7 @@ export const fetchUsers = (
     `/search/users?&q=location:${city}+language:${skill}&page=${page}`
   );
 
-  dispatch(fu(data));
+  dispatch(fetchUsersActionCreator(data));
 
   dispatch({ type: "LOADED" });
 };

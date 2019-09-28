@@ -1,10 +1,11 @@
 import * as React from "react";
-import { PaginatedCtrl } from "./Paginated.ctrl";
 import Pagination from "react-js-pagination";
+import { PaginatedProps } from "./Paginated.types";
 
-export class Paginated extends PaginatedCtrl {
+export class Paginated extends React.Component<PaginatedProps> {
   render() {
     const { itemsCount, currentPage, onPageChange, pageSize } = this.props;
+
     return (
       <div className={itemsCount ? "results" : ""}>
         <div className="pagination-list">
