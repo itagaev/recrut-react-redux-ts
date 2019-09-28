@@ -2,7 +2,7 @@ import * as React from "react";
 import { HomeCtrl } from "./Home.ctrl";
 import { SearchBar } from "../SearchBar";
 import { UsersData } from "../UsersData";
-import { Paginated } from "../Paginated";
+import { Paginated } from "../UsersData/Paginated";
 import { connect } from "react-redux";
 import {
   HomeStateProps,

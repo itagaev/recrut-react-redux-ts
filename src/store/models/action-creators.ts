@@ -1,6 +1,6 @@
 import { loading, loaded } from "../../components/UserProfile/redux/action";
-import { fetchUsers } from "../../components/Home/redux/thunk";
 import { fetchUser } from "./../../components/UserProfile/redux/thunk";
+import { fetchUsers } from "../../components/Home/redux/thunk";
 
 export const actionCreators = {
   fetchUser,

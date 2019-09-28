@@ -1,6 +1,6 @@
 import { Users } from "../Home/redux/state";
 
-export type UsersDataProps = {
+export type UsersDataProps =  {
   users: Users;
   loading: boolean;
 };

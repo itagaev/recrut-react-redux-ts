@@ -8,6 +8,10 @@ export const fetchUsers = (city: string, skill: string, page: number) => async (
 ): Promise<void> => {
   dispatch({ type: "LOADING" });
 
+  localStorage.setItem("searchSkill", skill);
+  localStorage.setItem("searchCity", city);
+  localStorage.setItem("currentPage", page.toString());
+
   const { data }: { data: Users } = await githubAPI.get(
     `/search/users?&q=location:${city}+language:${skill}&page=${page}`
   );
